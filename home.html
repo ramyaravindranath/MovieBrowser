@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movieApp"  ng-controller="movieController">
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie browser</title>
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+	
+	 <script src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.0-rc.2/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.0-rc.2/angular-resource.min.js"></script>
+        <script src="app.js"></script>
+    
+</head>
+ 
+<body style="background-image:url(background.jpg)">
+ <div class="container" style="background-image:url(contain.jpg)">
+
+    <h1 style="text-align:center">Fast Movie Browser</h1>
+    <p style="text-align:center">Get Reviews of Movies, TV shows and more!</p> 
+    <noscript>
+    <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+    </noscript>
+    <br/>
+   <div class="animated zoomInRight">
+    <div class="input-group search-bar">
+    <input type="text" ng-model="movie" ng-change="newSearch()" class="form-control" placeholder="movies,tv shows, actors and more"  />
+    <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>  <br/>
+    </div>
+	</div>
+	<div ng-if="MovieDetails.Response==='True'">
+	<div class="row">
+	 <div class="col-md-4">
+	<img ng-src="{{MovieDetails.Poster}}" class="thumbnail"/> 
+	 </div>
+	<div class="col-md-8">
+	<h2> {{MovieDetails.Title}} </h2>
+	<p class="label label-primary">Actors :</p> {{ MovieDetails.Actors }} <br/>
+	<p class="label label-primary">Writer :</p> {{ MovieDetails.Writer }} <br/>
+	<p class="label label-primary">Year :</p> {{ MovieDetails.Year }} <br/>
+	<p class="label label-primary">Released :</p> {{ MovieDetails.Released }} <br/>
+	<p class="label label-primary">Director :</p> {{ MovieDetails.Director }} <br/>
+	<p class="label label-primary">Awards :</p> {{ MovieDetails.Awards }} <br/>
+	<p class="label label-primary">Rating :</p> {{ MovieDetails.imdbRating }} <br/>
+	<p class="label label-primary">Plot :</p> {{ MovieDetails.Plot }} <br/> <br/>
+	<div>
+	<a ng-href="https://www.youtube.com/results?search_query={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers</a>
+	 <a ng-href="http://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy this movie</a>
+	  <a ng-href="http://subscene.com/subtitles/title?q={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Get Subtitles</a>
+	  <a href="http://www.facebook.com/sharer.php?u={{MovieDetails.Poster}}" target="_blank" class="btn btn-default btn-xs btn-info">Share</a>
+	</div>
+	</div>
+    </div>
+ 
+ <div ng-if="MovieDetails.Response==='False'">
+  No results found.
+</div>
+	
+
+	
+ </div>
+</div>
+</body></html>
