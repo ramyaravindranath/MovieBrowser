@@ -32,6 +32,8 @@
     <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>  <br/>
     </div>
 	</div>
+
+	<!-- Displaying result -->
 	<div ng-if="MovieDetails.Response==='True'">
 	<div class="row">
 	 <div class="col-md-4">
@@ -49,19 +51,20 @@
 	<p class="label label-primary">Plot :</p> {{ MovieDetails.Plot }} <br/> <br/>
 	<div>
 	<a ng-href="https://www.youtube.com/results?search_query={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers</a>
-	 <a ng-href="http://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy this movie</a>
+	 <a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy this movie</a>
 	  <a ng-href="http://subscene.com/subtitles/title?q={{ MovieDetails.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Get Subtitles</a>
-	  <a href="http://www.facebook.com/sharer.php?u={{MovieDetails.Poster}}" target="_blank" class="btn btn-default btn-xs btn-info">Share</a>
+	  <a href="http://www.facebook.com/sharer.php?u={{MovieDetails.Poster}}" target="_blank" class="btn btn-default btn-xs btn-info">Share Poster</a>
 	</div>
 	</div>
     </div>
- 
+
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+
+
  <div ng-if="MovieDetails.Response==='False'">
   No results found.
 </div>
 	
-
-	
- </div>
+</div>
 </div>
 </body></html>
